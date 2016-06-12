@@ -1,0 +1,41 @@
+{
+  "name": "js-starter",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run start & npm run watch",
+    "start": "./node_modules/.bin/http-server public/",
+    "watch": "npm run watch-js & npm run watch-css",
+    "watch-js": "./node_modules/.bin/watchify app/index.js -o public/build/index.js",
+    "watch-css": "./node_modules/.bin/gulp css:watch",
+    "build": "./node_modules/.bin/browserify app/index.js -o public/build/index.js && gulp css",
+    "deploy-production": "echo \"Error: no deploy script specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mithril": "lhorie/mithril.js#rewrite",
+    "mithril-firebase-mixin": "0.0.6",
+    "redux": "^3.5.2"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "eslint": "^2.12.0",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "exorcist": "^0.4.0",
+    "githooks": "sjungwirth/githooks#node",
+    "gulp": "^3.9.1",
+    "gulp-purifycss": "^0.2.0",
+    "gulp-sass": "^2.3.1",
+    "http-server": "^0.9.0",
+    "node-sass": "^3.7.0",
+    "tape": "^4.5.1",
+    "uglify-js": "mishoo/UglifyJS2#harmony",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.7.0",
+    "zombie": "^4.2.1"
+  }
+}
