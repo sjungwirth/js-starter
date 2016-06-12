@@ -4,6 +4,7 @@
   "description": "",
   "main": "app/index.js",
   "scripts": {
+    "lint": "./node_modules/.bin/eslint app",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run start & npm run watch",
     "start": "./node_modules/.bin/http-server public/",
