@@ -4,14 +4,14 @@
   "description": "",
   "main": "app/index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint app",
+    "lint": "./node_modules/.bin/eslint --fix app",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run start & npm run watch",
     "start": "./node_modules/.bin/http-server public/",
     "watch": "npm run watch-js & npm run watch-css",
-    "watch-js": "./node_modules/.bin/watchify app/index.js -o public/build/index.js",
+    "watch-js": "./node_modules/.bin/gulp js:watch",
     "watch-css": "./node_modules/.bin/gulp css:watch",
-    "build": "./node_modules/.bin/browserify app/index.js -o public/build/index.js && gulp css",
+    "build": "gulp js && gulp css",
     "deploy-production": "echo \"Error: no deploy script specified\" && exit 1"
   },
   "author": "",
@@ -22,6 +22,8 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "eslint": "^2.12.0",
     "eslint-config-airbnb-base": "^3.0.1",
@@ -31,10 +33,11 @@
     "gulp": "^3.9.1",
     "gulp-purifycss": "^0.2.0",
     "gulp-sass": "^2.3.1",
+    "gulp-util": "^3.0.7",
     "http-server": "^0.9.0",
     "node-sass": "^3.7.0",
     "tape": "^4.5.1",
-    "uglify-js": "mishoo/UglifyJS2#harmony",
+    "uglify-js": "mishoo/UglifyJS2",
     "uglifyify": "^3.0.1",
     "watchify": "^3.7.0",
     "zombie": "^4.2.1"
